@@ -58,6 +58,7 @@ services:
 volumes:
   wordpress:
   db_data:
+  certbot:
 
 
 networks:
