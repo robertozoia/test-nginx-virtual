@@ -20,11 +20,10 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --email roberto@zoia.org -d staging.ideconsac.com --agree-tos --force-renewal --non-interactive
+    command: certonly --webroot -w /var/www/certbot --email your@email.com -d app.example.com -d example.com --agree-tos --force-renewal --non-interactive
 
   flask-app:
-    build:
-      context: ./flask-app
+    build: ./flask-app
     expose:
       - 8000
     networks:
