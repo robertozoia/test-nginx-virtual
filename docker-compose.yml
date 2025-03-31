@@ -1,6 +1,6 @@
 services:
   nginx:
-    build: ./nginx
+    image: nginx:alpine
     ports:
       - "80:80"
       - "443:443"
@@ -23,7 +23,8 @@ services:
     command: certonly --webroot -w /var/www/certbot --email roberto@zoia.org -d staging.ideconsac.com --agree-tos --force-renewal --non-interactive
 
   flask-app:
-    build: ./flask-app
+    build:
+      context: ./flask-app
     expose:
       - 8000
     networks:
@@ -44,7 +45,8 @@ services:
       - web_network
 
   db:
-    image: mysql:8.0
+    image: mysql:8
+    platform: linux/arm64/v8
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${WORDPRESS_DB_NAME}
