@@ -46,7 +46,6 @@ services:
 
   db:
     image: mysql:8
-    platform: linux/arm64/v8
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_DATABASE=${WORDPRESS_DB_NAME}
