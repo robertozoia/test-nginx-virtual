@@ -20,7 +20,7 @@ services:
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --email roberto@zoia.org -d app-staging.ideconsac.com -d staging.ideconsac.com --agree-tos --force-renewal
+    command: certonly --webroot -w /var/www/certbot --email roberto@zoia.org -d app-staging.ideconsac.com -d staging.ideconsac.com --agree-tos --force-renewal --non-interactive
 
   flask-app:
     build: ./flask-app
